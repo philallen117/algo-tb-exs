@@ -3,7 +3,9 @@
 import sys
 
 def max_dot_product(a, b):
-    #write your code here
+    a = sorted(a, reverse=True)
+    b = sorted(b, reverse=True)
+    # could do better than n * log(n), which is sort?
     res = 0
     for i in range(len(a)):
         res += a[i] * b[i]
