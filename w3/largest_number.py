@@ -1,20 +1,17 @@
 # python3
 
 import sys
-from math import floor, log10, pow
 
 def largest_number(a):
-    # def most_sig_dig(i):
-    #     return floor(i / pow(10, floor(log10(i))))
-    def most_sig_dig(i):
-        r = i
-        while r >= 10:
-            r = i // 10
-        return r
-    a_msd = [most_sig_dig(i) for i in a]
+    def better(m, n):
+        return max(m + n, nm = n + m)
     res = ""
-    for x in a:
-        res += x
+    while len(a) > 0:
+        so_far = a[0]
+        for x in a[1:]:
+            so_far = better(so_far, x)
+        res += so_far
+        a.remove(so_far)
     return res
 
 if __name__ == '__main__':
@@ -22,4 +19,3 @@ if __name__ == '__main__':
     data = input.split()
     a = data[1:]
     print(largest_number(a))
-    

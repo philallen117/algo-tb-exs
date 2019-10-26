@@ -1,5 +1,4 @@
-#Uses python3
-
+# python3
 import sys
 
 def max_dot_product(a, b):
