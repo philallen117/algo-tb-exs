@@ -11,7 +11,8 @@ def optimal_summands(n):
         if balance >= 2 * prize + 1:
             # safe to add prize and at least one further distinct value
             summands.append(prize)
-            prize = prize + 1 # preserves loop invariant because guard
+            balance -= prize
+            prize += 1 # preserves loop invariant because guard
             continue
         elif balance < 2 * prize + 1:
             # cannot add more than one distinct summand

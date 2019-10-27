@@ -12,20 +12,6 @@ def intersect(seg1, seg2):
     else:
         return None
 
-def optimal_points1(segments):
-    assert len(segments) > 0, "Segments was empty"
-    points = []
-    current = segments[0]
-    for s in segments[1:]:
-        inter = intersect(current, s)
-        if inter == None:
-            points.append(current.start)
-            current = s
-        else:
-            current = inter
-    points.append(current.start)
-    return points
-
 def optimal_points(segments):
     assert len(segments) > 0, "Segments was empty"
     zones = []
@@ -33,7 +19,7 @@ def optimal_points(segments):
     def update_zones(seg):
         found = False
         for z in zones:
-            cand = intersect(z. seg)
+            cand = intersect(z, seg)
             if cand != None:
                 found = True
                 zones.remove(z)

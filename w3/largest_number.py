@@ -2,9 +2,13 @@
 
 import sys
 
+def better(m, n):
+    if m + n >  n + m:
+        return m
+    else:
+        return n
+
 def largest_number(a):
-    def better(m, n):
-        return max(m + n, nm = n + m)
     res = ""
     while len(a) > 0:
         so_far = a[0]
