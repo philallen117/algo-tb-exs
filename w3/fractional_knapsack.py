@@ -3,7 +3,6 @@ import sys
 
 def get_optimal_value(capacity, weights, values):
     value = 0.
-    # write your code here
     assert(capacity > 0)
     n = len(weights)
     rates = [values[i] / weights[i] for i in range(n)]
