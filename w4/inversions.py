@@ -8,7 +8,12 @@ def get_number_of_inversions(a, b, left, right):
     ave = (left + right) // 2
     number_of_inversions += get_number_of_inversions(a, b, left, ave)
     number_of_inversions += get_number_of_inversions(a, b, ave, right)
-    #write your code here
+    # but how do i not sort things log n times?
+    def merge_sort(l):
+        return l
+    def merge_count(a, b):
+        return 5
+    number_of_inversions += merge_count(merge_sort(a), merge_sort(b))
     return number_of_inversions
 
 if __name__ == '__main__':
