@@ -106,3 +106,5 @@ venv.bak/
 # IDEs
 .vscode/
 .ionide/
+
+.DS_Store
