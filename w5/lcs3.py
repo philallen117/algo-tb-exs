@@ -35,7 +35,6 @@ def lcs3(a, b, c):
                 x = lcs.get(row, col, rank - 1)
                 lcs.set(row, col, rank, max(u, v, w, x))
     return lcs.get(rows - 1, cols - 1, ranks - 1)
-    return min(len(a), len(b), len(c))
 
 if __name__ == '__main__':
     input = sys.stdin.read()

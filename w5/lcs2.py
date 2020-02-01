@@ -17,23 +17,19 @@ class TwoDArray:
         self.content[i * self.cols + j] = value
 
 def lcs2(s, t):
-    m, n = len(s), len(t)
-    lcs = TwoDArray(m + 1, n + 1)
+    rows, cols = len(s) + 1, len(t) + 1
+    lcs = TwoDArray(rows, cols)
     # distance table - with s on rows and t on columns
-    # for row in range(m + 1):
-    #     lcs.set(row, 0, 0)
-    # for col in range(n + 1):
-    #     lcs.set(0, col, 0)
-    for row in range(1, m + 1):
+    for row in range(1, rows):
         ss = s[row - 1]   # 0-indexed
-        for col in range(1, n + 1):
+        for col in range(1, cols):
             tt = t[col - 1]
             u = lcs.get(row - 1, col - 1)
             if ss == tt: u = u + 1
             v = lcs.get(row - 1, col)
             w = lcs.get(row, col - 1)
             lcs.set(row, col, max(u, v, w))
-    return lcs.get(m - 1, n - 1)
+    return lcs.get(rows - 1, cols - 1)
 
 if __name__ == '__main__':
     input = sys.stdin.read()

@@ -15,10 +15,8 @@ import sys
 
 def optimal_sequence(n):
     ancestors = [0] * (n + 1)
-    ancestors[2] = 1
-    lengths = [1] * (n + 1)
-    lengths[2] =  1
-    for i in range(3, n + 1):
+    lengths = [0] * (n + 1)
+    for i in range(1, n + 1):
         u = v = sys.maxsize
         if i % 3 == 0:
             u = lengths[i // 3]
@@ -38,10 +36,11 @@ def optimal_sequence(n):
     backwards = []
     backwards.append(n)
     j = n
-    while j > 1:
+    while j >= 1:
         j = ancestors[j]
         backwards.append(j)
-    return backwards.reverse  
+    backwards.reverse()
+    return backwards
 
 if __name__ == '__main__':
     input = sys.stdin.read()
