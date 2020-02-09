@@ -1,12 +1,14 @@
 # Uses python3
 import sys
 
+# left <= i < right
 def get_majority_element(a, left, right):
-    if left == right:
-        return -1
-    if left + 1 == right:
+    # if left == right:
+    #     return -1
+    if right == left + 1:
         return a[left]
-    mid = (left + right + 1) // 2
+    # right >= left + 2
+    mid = (left + right) // 2
     lme = get_majority_element(a, left, mid)
     rme = get_majority_element(a, mid, right)
     if lme == -1:

@@ -2,8 +2,8 @@
 import sys
 
 def binary_search_r(a, x):
-    def aux(left, right):
-        if left > right:
+    def aux(a, left, right):
+        if left == right:
             return -1
         else:
             mid = (left + right) // 2
@@ -11,26 +11,26 @@ def binary_search_r(a, x):
             if amid == x:
                 return mid
             elif x > amid:
-                return aux(mid + 1, right)
+                return aux(a, mid + 1, right)
             else:
-                return aux(left, mid - 1)
-    return aux(0, len(a) - 1)
+                return aux(a, left, mid)
+    return aux(a, 0, len(a))
         
 def binary_search(a, x):
-    left, right = 0, len(a) - 1
+    left, right = 0, len(a)
     while True:
-        if left > right:
+        if left == right:
             return -1
         else:
             mid = (left + right) // 2
             amid = a[mid]
             if amid == x:
-                return mid
+                return mid 
             elif x > amid:
                 left = mid + 1
                 continue
             else:
-                right = mid - 1
+                right = mid
                 continue
 
 def linear_search(a, x):
@@ -47,5 +47,5 @@ if __name__ == '__main__':
     a = data[1 : n + 1]
     for x in data[n + 2:]:
         # replace with the call to binary_search when implemented
-        print(linear_search(a, x), end = ' ')
+        # print(linear_search(a, x), end = ' ')
         print(binary_search(a, x), end = ' ')
