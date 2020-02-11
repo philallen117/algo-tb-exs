@@ -37,7 +37,7 @@ def knapsack(W, ws, vs):
 
 def optimal_weight(W, ws):
     # W limit, ws weights
-    return knapsack(W, ws, vs)
+    return knapsack(W, ws, ws)
 
 
 if __name__ == '__main__':
